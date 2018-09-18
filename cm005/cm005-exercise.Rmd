@@ -92,6 +92,12 @@ gapminder %>%
 
 1. Only take data with population greater than 100 million.
 
+```{r}
+gapminder %>%
+  filter(pop>100000000)
+```
+
+
 2. Of those, only take data from Asia.
 
 ## git stuff (Optional)

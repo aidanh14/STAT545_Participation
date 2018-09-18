@@ -237,6 +237,30 @@ gapminder %>%
 
 1. Only take data with population greater than 100 million.
 
+
+```r
+gapminder %>%
+  filter(pop>100000000)
+```
+
+```
+## # A tibble: 77 x 6
+##    country    continent  year lifeExp       pop gdpPercap
+##    <fct>      <fct>     <int>   <dbl>     <int>     <dbl>
+##  1 Bangladesh Asia       1987    52.8 103764241      752.
+##  2 Bangladesh Asia       1992    56.0 113704579      838.
+##  3 Bangladesh Asia       1997    59.4 123315288      973.
+##  4 Bangladesh Asia       2002    62.0 135656790     1136.
+##  5 Bangladesh Asia       2007    64.1 150448339     1391.
+##  6 Brazil     Americas   1972    59.5 100840058     4986.
+##  7 Brazil     Americas   1977    61.5 114313951     6660.
+##  8 Brazil     Americas   1982    63.3 128962939     7031.
+##  9 Brazil     Americas   1987    65.2 142938076     7807.
+## 10 Brazil     Americas   1992    67.1 155975974     6950.
+## # ... with 67 more rows
+```
+
+
 2. Of those, only take data from Asia.
 
 ## git stuff (Optional)
