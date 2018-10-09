@@ -53,7 +53,8 @@ These functions we've seen are called __vectorized functions__.
 Use `summarize()` to compute the mean and median life expectancy using all entries:
 
 ```{r}
-
+gapminder %>%
+  summarize(lifeExp)
 ```
 
 Do the same thing, but try:
@@ -178,7 +179,7 @@ my_df <- gapminder %>%
     rel_gdp = gdp/cda_gdp)
 
 my_df %>% filter(country == "Canada")
-summary(my_df%rel_gdp)
+summary(my_df$rel_gdp)
 ```
 
 Sanity check: are Canada's numbers = 1? What is the spread of numbers like (should be small)?
@@ -199,6 +200,8 @@ Together with `group_by()` and "twists" of the above.
 Practice these concepts in the following exercises. It might help you to first identify the type of function you are applying.
 
 1. Convert the population to a number in billions.
+
+
 
 2. Compute the change in population from 1962 to 1972 for each country.
 
