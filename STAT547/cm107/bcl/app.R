@@ -1,17 +1,22 @@
 library(shiny)
 
-# Define UI for application that draws a histogram
+bcl <- read.csv("bcl-data.csv", stringsAsFactors = FALSE)
+
 ui <- fluidPage(
-  "This is some text",
-  "This is more text.",
-  tags$h1("level 1 header"),
-  h1(em("Level 1 header, part 2"),
-  HTML("<h1>Level 1 header, part 3</h1>")
+  titlePanel("BC Liquor price app", 
+             windowTitle = "BCL app"),
+  sidebarLayout(
+    sidebarPanel("This text is in the sidebar."),
+    mainPanel(
+      plotOutput("price_hist"),
+      tableOutput("bcl_table")
+              )
+  )
 )
 
-# Define server logic required to draw a histogram
 server <- function(input, output) {
-   
+   output$price_hist <- renderPlot(ggplot2::qplot(bcl$Price))
+   output$bcl_table <- renderTable(head(bcl))
 
 }
 
