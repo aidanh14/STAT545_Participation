@@ -24,6 +24,7 @@ This means reading webpages like [this wikipedia page](https://en.wikipedia.org/
 ```{r}
 library(tidyverse)
 library(rvest)
+library(jsonlite)
 ```
 
 3. Download [cm111-simple_script.html](cm111-simple_script.html) to your participation repo.
@@ -171,7 +172,8 @@ Goal: extract the Wikipedia table of the [tallest steel roller coasters](https:/
 
 ```{r}
 read_html("https://en.wikipedia.org/wiki/List_of_roller_coaster_rankings") %>% 
-	html_table(fill = TRUE)
+	html_table(fill = TRUE) %>%
+  .[[2]]
 ```
 
 
@@ -182,10 +184,10 @@ We've already seen `readr`, but what about importing other data types?
 - JSON, with the `jsonlite` package. Examples from the `fromJSON()` documentation:
 
 ```{r}
-fromJSON('{"city" : "Z\\u00FCrich"}') # A list
-fromJSON("https://api.github.com/users/hadley/orgs") %>% 
+jsonlite::fromJSON('{"city" : "Z\\u00FCrich"}') # A list
+jsonlite::fromJSON("https://api.github.com/users/hadley/orgs") %>% 
 	glimpse() # A data frame
-toJSON(mtcars, pretty=TRUE)
+jsonlite::toJSON(mtcars, pretty=TRUE)
 ```
 
 
